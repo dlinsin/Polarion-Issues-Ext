@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>David Linsin</string>
+	<key>Builder Version</key>
+	<string>7534.57.2</string>
+	<key>CFBundleDisplayName</key>
+	<string>Polarion Issues</string>
+	<key>CFBundleIdentifier</key>
+	<string>de.linsin.polarionissuesext</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Context Menu Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>copy_from_polarion</string>
+				<key>Title</key>
+				<string>Copy Polarion Info</string>
+			</dict>
+			<dict>
+				<key>Identifier</key>
+				<string>add_from_polarion</string>
+				<key>Title</key>
+				<string>Add Polarion Info</string>
+			</dict>
+		</array>
+		<key>Global Page</key>
+		<string>global.html</string>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>shortcuts.js</string>
+				<string>cvi_busy_lib.js</string>
+				<string>injected.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Copy Polarion Information and adds it to Github Issues</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>http://dlinsin.github.com</string>
+</dict>
+</plist>

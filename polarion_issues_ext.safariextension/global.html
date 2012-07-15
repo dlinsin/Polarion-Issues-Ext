@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Polarion Github Issues</title>
+	<script type="text/javascript" charset="utf-8">			
+		
+		var polarionID = "";
+		var polarionData = new Array();
+		
+		function performCommand(event) {
+			console.log("perfoming command: " + event.command);
+			if (event.command == "copy_from_polarion") {
+				console.log("copy data");
+				safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("polarionData", "");	
+			} else if (event.command == "add_from_polarion" && polarionData.length > 0) {
+				console.log("insert data: " + polarionData);
+				safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("insertPolarionData", polarionData);	
+			}
+		}
+		
+		function currentSiteNewIssue() {
+			var url = safari.application.activeBrowserWindow.activeTab.url;
+			var github_issue_pattern = new RegExp("https://github.com/.*/issues/new");
+			return github_issue_pattern.test(url);
+		}		
+		
+		function performValidate(event) {
+			console.log("validate");
+
+			if (event.command === "copy_from_polarion" && polarionID != "") {
+				event.target.disabled = false;
+			} else if (event.command === "copy_from_polarion" && polarionID == "") {
+				event.target.disabled = true;
+			} else if (event.command === "add_from_polarion") {
+				if (currentSiteNewIssue()) {
+					event.target.disabled = false;
+				} else {
+					event.target.disabled = true;
+				}
+			}
+		}
+		
+		function buildLink(link) {
+			var currentUrl = safari.application.activeBrowserWindow.activeTab.url;
+			var baseUrl = currentUrl.substring(0,currentUrl.indexOf("print"));	
+			console.log("link to polarion ticket: " + baseUrl + link);			
+			return baseUrl + link;
+		}
+		
+		function performMessage(theMessageEvent) {
+			console.log("message received: " + theMessageEvent.name + "/" + theMessageEvent.message);
+			if(theMessageEvent.name == "polarionID") {
+			   	if (theMessageEvent.message && theMessageEvent.message != "" && theMessageEvent.message != "not found") {
+			   		polarionID = theMessageEvent.message;
+			   		console.log("polarionID found");
+			   	} else {
+			   		polarionID = "";
+			   		console.log("polarionID not found");
+			   	}
+			} else if (theMessageEvent.name == "polarionData") {
+				polarionData = theMessageEvent.message;
+				polarionData[10] = buildLink(polarionData[10]);
+				polarionData[12] = polarionID;
+				console.log("polarionData found");
+			} else if (theMessageEvent.name == "performInsert") {
+				if (currentSiteNewIssue() && polarionData.length > 0) {
+					safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("insertPolarionData", polarionData);
+				}				
+			}
+		}
+		
+		function handleMenu() {
+			console.log("tab activated");
+			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("polarion_copyright", "");	
+		}
+		
+		safari.application.addEventListener("command", performCommand, false);
+		safari.application.addEventListener("validate", performValidate, false);
+		safari.application.addEventListener("message", performMessage,false);		
+		safari.application.addEventListener("activate", handleMenu, true);
+		safari.application.addEventListener("navigate", handleMenu, true);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
