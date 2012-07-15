@@ -5,6 +5,54 @@ and adds it to a [GitHub issue](https://github.com/dlinsin/Polarion-Issues-Ext/i
 
 Written by [David Linsin](http://dlinsin.github.com), July 2012.
 
+## Installation
+
+Download the [latest version](https://github.com/downloads/dlinsin/Polarion-Issues-Ext/polarion_issues_ext-1.0.safariextz) of the Safari Extension 
+and double click to install it.
+
+## Usage
+
+1. Open a new Tab and navigate to any Polarion ticket. Navigate to the print view, which you can find in the _Action_ menu:
+
+![Print Menu](https://github.com/downloads/dlinsin/Polarion-Issues-Ext/print_menu.png)
+
+Cancel the printer dialog and right click anywhere in order to bring up the context menu item _Copy Polarion Info_. 
+Clicking it will extract the following information:
+
+  * ID
+  * Title
+  * Description
+  * Type
+  * Author
+  * Priority
+  * Severity
+  * Error Version
+  * Target OS
+  * Repair Version
+  * Creation Date
+  * Url 
+
+Alternatively, after canceling the printer dialog, you can use the keyboard shortcut _SHIFT+CTRL+P_ to extract the information 
+directly.
+
+2. Create a [new GitHub Issue](https://github.com/dlinsin/Polarion-Issues-Ext/issues/new) and 
+bring up the context menu by right clicking anywhere on the site. Click on the menu item 
+_Add Polarion Info_ which will set the following Polarion infos:
+
+  * the issues title to ID + title
+  * a block quote containing the information mentioned above and the ID as a link to the URL of the original Polarion ticket
+
+Alternatively you can use the keyboard shortcut _SHIFT+CTRL+O_ to add the information to the 
+new issue directly.
+
+## Known Issues
+
+Polarion can be customized and the fields extracted here might not suit your needs. You can easily customize 
+them by adopting `dataFields_en` in the file `injected.js`.
+
+At the moment the only language supported is English. If you'd like to contribute another language, please 
+open a [pull request](https://github.com/dlinsin/Polarion-Issues-Ext/pulls).
+
 ## Issues and Feature Requests
 
 Please report issues via GitHub's issue tracker.
