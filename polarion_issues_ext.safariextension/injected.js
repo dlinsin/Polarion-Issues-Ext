@@ -201,6 +201,6 @@ function performMessage(theMessageEvent) {
 }
 
 safari.self.addEventListener("message", performMessage, false);
-shortcut.add("Ctrl+Shift+I",function() {
+shortcut.add("Ctrl+Shift+O",function() {
 	safari.self.tab.dispatchMessage("performInsert","");
 });	
