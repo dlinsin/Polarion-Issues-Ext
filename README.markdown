@@ -7,7 +7,7 @@ Written by [David Linsin](http://dlinsin.github.com), July 2012.
 
 ## Installation
 
-Download the [latest version](https://github.com/downloads/dlinsin/Polarion-Issues-Ext/polarion_issues_ext-1.0.safariextz) of the Safari Extension 
+Download the [latest version](https://github.com/downloads/dlinsin/Polarion-Issues-Ext/polarion_issues_ext-1.1.safariextz) of the Safari Extension 
 and double click to install it.
 
 ## Usage
@@ -47,11 +47,19 @@ new issue directly.
 
 ## Known Issues
 
+### General
+
 Polarion can be customized and the fields extracted here might not suit your needs. You can easily customize 
 them by adopting `dataFields_en` in the file `injected.js`.
 
 At the moment the only language supported is English. If you'd like to contribute another language, please 
 open a [pull request](https://github.com/dlinsin/Polarion-Issues-Ext/pulls).
+
+### GitHub Issue Submit Button
+
+Under some circumstances the _Submit new Issue_ button on a GitHub issue might stay disabled after 
+inserting the Polarion information. As a workaround, you can simply add any character to the title of 
+the issue, that's the reason why it's being focused right after insertion.
 
 ## Issues and Feature Requests
 

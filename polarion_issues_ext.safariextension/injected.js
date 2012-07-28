@@ -155,6 +155,7 @@ function findPolarionData() {
 // inserts the data passed in the array into the "new github issue" page 
 // using dataFields_en
 function insertPolarionData(data_array) {
+	document.getElementById("issue_title").focus();
 	// set title
 	document.getElementById("issue_title").value = data_array[11];
 	// set body
