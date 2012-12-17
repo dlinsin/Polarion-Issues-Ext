@@ -95,7 +95,7 @@ function findDescription() {
 	var items = document.getElementsByTagName("tr");
 	for (i=0; i < items.length; i++) {
 		if (items[i].firstChild.innerText == name) {
-			return items[i].nextSibling.firstChild.innerText;
+			return items[i].parentNode.parentNode.parentNode.parentNode.nextSibling.firstChild.innerText;
 		}		
 	}
 	return "";
