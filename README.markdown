@@ -7,7 +7,7 @@ Written by [David Linsin](http://dlinsin.github.com), July 2012.
 
 ## Installation
 
-Download the [latest version](https://github.com/downloads/dlinsin/Polarion-Issues-Ext/polarion_issues_ext-1.1.safariextz) of the Safari Extension 
+Download the [latest version](https://github.com/dlinsin/Polarion-Issues-Ext/wiki/files/polarion_issues_ext-1.2.safariextz) of the Safari Extension 
 and double click to install it.
 
 ## Usage
